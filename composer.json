@@ -1,0 +1,19 @@
+{
+    "name": "biscofil/aimon",
+    "description": "A simple interface for the Aimon SMS service",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Filippo Bisconcin",
+            "email": "filippo.bisconcin@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aimon\\": "src/"
+        }
+    }
+}
