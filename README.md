@@ -8,6 +8,17 @@ Installation
 composer require biscofil/aimon
 ```
 
+Usage
+-----
+
+```php
+ $aimon = new AimonInterface("authlogin", "authpasswd");
+ $aimon->sendSmsMessage("number", "message");
+ $aimon->sendProSmsMessage("number", "message", "sender");
+```
+
+In case of error, an AimonException is thown
+
 Documentation
 -------------
 
