@@ -18,7 +18,7 @@ $aimon->sendSmartSmsMessage("number", "message");
 $aimon->sendProSmsMessage("number", "message", "sender");
 ```
 
-In case of error, an AimonException is thown
+In case of error, an AimonException is thrown
 
 Documentation
 -------------
