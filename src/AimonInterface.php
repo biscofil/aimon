@@ -3,6 +3,7 @@
 namespace Aimon;
 
 use GuzzleHttp\Client;
+use Normalizer;
 
 /**
  * Class AimonInterface
@@ -34,11 +35,12 @@ class AimonInterface
      * @param $message
      * @throws AimonException
      */
-    public function sendSmsMessage($number, $message)
+    public function sendSmartSmsMessage($number, $message)
     {
         $this->makeRequest([
             'number' => $number,
             'message' => $message,
+            'id_api' => 106
         ]);
     }
 
@@ -109,9 +111,10 @@ class AimonInterface
 
     /**
      * @param string|integer $number
+     * @param string $prefix
      * @return string
      */
-    private function addPrefixIfMissing($number)
+    public function addPrefixIfMissing($number, $prefix = '+39')
     {
         // remove spaces from the phone number
         $number = preg_replace('/\s+/', '', strval($number));
@@ -119,8 +122,8 @@ class AimonInterface
         if (preg_match('/^([0-9]{10})$/', $number)) {
             // number has no prefix
 
-            // prepend italian prefix (+39)
-            $number = '+39' . $number;
+            // prepend prefix
+            $number = $prefix . $number;
 
         }
 
@@ -132,9 +135,8 @@ class AimonInterface
      * @param $number
      * @return string
      */
-    private function getFormattedNumber($number)
+    public function getFormattedNumber($number)
     {
-
 
         // remove spaces
         $number = preg_replace('/\s+/', '', $number);
