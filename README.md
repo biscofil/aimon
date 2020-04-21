@@ -12,7 +12,7 @@ Usage
 -----
 
 ```php
- use Aimon\AimonInterface;
+use Aimon\AimonInterface;
 $aimon = new AimonInterface("authlogin", "authpasswd");
 $aimon->sendSmartSmsMessage("number", "message");
 $aimon->sendProSmsMessage("number", "message", "sender");

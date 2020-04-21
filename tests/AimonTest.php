@@ -1,6 +1,5 @@
 <?php
 
-use Aimon\AimonException;
 use Aimon\AimonInterface;
 use PHPUnit\Framework\TestCase;
 
