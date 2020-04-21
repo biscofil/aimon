@@ -1,6 +1,6 @@
 {
     "name": "biscofil/aimon",
-    "description": "A simple interface for the Aimon SMS service",
+    "description": "A simple PHP interface for the Aimon SMS service",
     "license": "MIT",
     "authors": [
         {
