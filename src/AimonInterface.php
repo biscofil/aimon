@@ -37,7 +37,7 @@ class AimonInterface
      */
     public function sendSmartSmsMessage($number, $message)
     {
-        $this->makeRequest([
+        $this->sendSms([
             'number' => $number,
             'message' => $message,
             'id_api' => 106
@@ -54,7 +54,7 @@ class AimonInterface
      */
     public function sendProSmsMessage($number, $message, $sender)
     {
-        $this->makeRequest([
+        $this->sendSms([
             'number' => $number,
             'message' => $message,
             'sender' => $sender,
@@ -63,10 +63,29 @@ class AimonInterface
     }
 
     /**
+     * @return float
+     */
+    public function getCreditLeft() {
+
+        $client = new Client();
+
+        $response = $client->post("https://secure.apisms.it/http/get_credit", [
+            'query' => [
+                'authlogin' => $this->login,
+                'authpasswd' => $this->password,
+            ]
+        ]);
+
+        $responseBody = (string)$response->getBody();
+
+        return floatval($responseBody);
+    }
+
+    /**
      * @param array $data
      * @throws AimonException
      */
-    private function makeRequest($data)
+    private function sendSms($data)
     {
 
         $message = $data['message'];
